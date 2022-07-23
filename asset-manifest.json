@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Strange-Attractor/static/css/main.073c9b0a.css",
+    "main.js": "/Strange-Attractor/static/js/main.3928321d.js",
+    "index.html": "/Strange-Attractor/index.html",
+    "main.073c9b0a.css.map": "/Strange-Attractor/static/css/main.073c9b0a.css.map",
+    "main.3928321d.js.map": "/Strange-Attractor/static/js/main.3928321d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.3928321d.js"
+  ]
+}
