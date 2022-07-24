@@ -5,16 +5,13 @@ import {
   PerspectiveCamera,
   ContactShadows,
   Environment,
-  useGLTF,
-  Instances,
-  Instance,
 } from "@react-three/drei";
 import createStrore from "zustand";
 import { useControls, Leva } from "leva";
 
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry";
 import * as THREE from "three";
-import { attractor } from "../../constants";
+import { attractor, colorList } from "../../constants";
 
 import CanvasOption from "./canvasOptions";
 
@@ -27,15 +24,15 @@ const Attractor = ({
   },
   useUiMenu,
 }) => {
-  let data = {};
-  data = useControls({ ...menuData });
+  // let data = useControls({ ...menuData }, [menuData]);;
+  // data = useControls({ ...menuData }, [menuData]);
 
-  if (!useUiMenu) {
-    const useStore = createStrore(() => state);
-    data = useStore.getState();
-  }
+  // if (!useUiMenu) {
+  //   const useStore = createStrore(() => state);
+  //   data = useStore.getState();
+  // }
 
-  const points = func(data);
+  const points = func(state);
 
   let meshList = [...new Array(points.length)].map(() => new THREE.Object3D());
   meshList.forEach((mesh, i) => {
@@ -66,7 +63,10 @@ const Attractor = ({
       receiveShadow
       castShadow
     >
-      <roundedBoxGeometry args={[1 * s, 1 * s, 1 * s, 1, 0.075 * s]} />
+      <roundedBoxGeometry
+        receiveShadow
+        args={[0.5 * s, 0.5 * s, 0.5 * s, 1, 0.075]}
+      />
       {/* <sphereBufferGeometry args={[0.1]} castShadow receiveShadow>
         <instancedBufferAttribute />
       </sphereBufferGeometry> */}
@@ -79,8 +79,10 @@ function HomePage() {
   const [currentAttractor, setCurrentAttractor] = useState(attractor[0]);
   const [useUiMenu, setUiMenu] = useState(true);
 
-  const [colorDropDown, setColorDropDown] = useState(true);
-  const [backgroundColor, setBackgroundColor] = useState("#DFF0F0");
+  const [colorDropDown, setColorDropDown] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState(colorList[0].color);
+
+  const [attractorDropDown, setAttractorDropDown] = useState(false);
 
   const handleColorDropDown = (value) => {
     setColorDropDown(value);
@@ -90,12 +92,31 @@ function HomePage() {
     setBackgroundColor(value);
   };
 
+  const handleAttractorDropdown = () => {
+    setAttractorDropDown(!attractorDropDown);
+  };
+
+  const handleAttractorClicked = (value) => {
+    setCurrentAttractor(value);
+  };
+
+  // let data = {};
+  // data = useControls({ ...currentAttractor.data.menuData });
+
+  // if (!useUiMenu) {
+  //   const useStore = createStrore(() => currentAttractor.data.state);
+  //   data = useStore.getState();
+  // }
+
   return (
     <div className="w-screen h-screen z-0 relative">
       <CanvasOption
         colorDropDown={colorDropDown}
         handleColorDropDown={handleColorDropDown}
         handleColorClicked={handleColorClicked}
+        attractorDropDown={attractorDropDown}
+        handleAttractorDropdown={handleAttractorDropdown}
+        handleAttractorClicked={handleAttractorClicked}
       />
 
       <Canvas>
@@ -118,7 +139,7 @@ function HomePage() {
         </Suspense>
 
         <ambientLight intensity={1} />
-        <pointLight position={[-10, 0, 0]} intensity={10} />
+        <pointLight position={[-10, 0, 0]} intensity={2} />
         <pointLight position={[10, 10, 10]} intensity={2} castShadow />
 
         <color args={[backgroundColor]} attach="background" />

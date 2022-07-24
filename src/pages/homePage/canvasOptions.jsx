@@ -1,64 +1,67 @@
 import React from "react";
-import { ColorSwatch, ScreenShot } from "../../constants";
+import { ColorSwatch, Swap, attractor, colorList } from "../../constants";
 import { IconWrapper } from "../../components";
 
 function CanvasOptions({
   colorDropDown,
   handleColorDropDown,
   handleColorClicked,
+  attractorDropDown,
+  handleAttractorDropdown,
+  handleAttractorClicked,
 }) {
   return (
-    <div className="absolute top-2 left-0 z-30">
-      <div className="flex flex-col items-center justify-center">
-        <div className="relative">
-          <IconWrapper
-            tooltip={"Change Background"}
-            showTooltip={!colorDropDown}
-            handleClick={() => handleColorDropDown(!colorDropDown)}
-            toolTipStyle={{ left: "0px" }}
-          >
-            {ColorSwatch({ fill: "#ffffff" })}
-          </IconWrapper>
-          {colorDropDown && (
-            <div className="absolute h-fit top-[35px] left-[10px] bg-black/50 text-white text-center py-2 rounded">
+    <div className="absolute top-2 left-0 z-30 w-full flex ">
+      <div className="relative">
+        <IconWrapper
+          tooltip={"Change Background"}
+          showTooltip={!colorDropDown}
+          handleClick={() => handleColorDropDown(!colorDropDown)}
+          toolTipStyle={{ left: "0px" }}
+        >
+          {ColorSwatch({ fill: "#ffffff" })}
+        </IconWrapper>
+        {colorDropDown && (
+          <div className="absolute h-fit top-[35px] left-[10px] bg-black/50 text-white text-center py-2 rounded">
+            {colorList.map((color, index) => (
               <div
+                key={index}
                 className="flex items-flex justify-start text-base my-2 mx-2 cursor-pointer"
-                onClick={() => handleColorClicked("#E5E5E7")}
+                onClick={() => handleColorClicked(color.color)}
               >
-                <i className="w-[25px] h-[25px] mr-2 rounded-full cursor-pointer flex items-center justify-center  bg-[#E5E5E7]" />
-                <span className="truncate">Swiss Coffee</span>
+                <i
+                  className="w-[25px] h-[25px] mr-2 rounded-full cursor-pointer flex items-center justify-center  bg-[${}]"
+                  style={{ background: color.color }}
+                />
+                <span className="truncate">{color.name}</span>
               </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="relative">
+        <IconWrapper
+          tooltip={"Change Attractor"}
+          showTooltip={!attractorDropDown}
+          handleClick={() => handleAttractorDropdown(!attractorDropDown)}
+          toolTipStyle={{ left: "0px" }}
+        >
+          {Swap({ fill: "#ffffff" })}
+        </IconWrapper>
+        {attractorDropDown && (
+          <div className="absolute h-fit top-[35px] left-[10px] bg-black/50 text-white text-center py-1 rounded">
+            {attractor.map((o, index) => (
               <div
-                className="flex items-center justify-start text-base my-2 mx-2 cursor-pointer"
-                onClick={() => handleColorClicked("#dbdac6")}
+                key={index}
+                className="flex items-flex justify-start text-base my-2 mx-2 cursor-pointer"
+                onClick={() => handleAttractorClicked(o)}
               >
-                <i className="w-[25px] h-[25px] mr-2 rounded-full cursor-pointer flex items-center justify-center  bg-[#dbdac6]" />
-                <span className="truncate">Link Water</span>
+                <span className="truncate">{o.name}</span>
               </div>
-              <div
-                className="flex items-center justify-start text-base my-2 mx-2 cursor-pointer"
-                onClick={() => handleColorClicked("#807c74")}
-              >
-                <i className="w-[25px] h-[25px] mr-2 rounded-full cursor-pointer flex items-center justify-center  bg-[#807c74]" />
-                <span className="truncate">Friar Gray</span>
-              </div>
-              <div
-                className="flex items-center justify-start text-base my-2 mx-2 cursor-pointer"
-                onClick={() => handleColorClicked("#5b6069")}
-              >
-                <i className="w-[25px] h-[25px] mr-2 rounded-full cursor-pointer flex items-center justify-center  bg-[#5b6069]" />
-                <span className="truncate">Shuttle Gray</span>
-              </div>
-              <div
-                className="flex items-center justify-start text-base my-2 mx-2 cursor-pointer"
-                onClick={() => handleColorClicked("#302d31")}
-              >
-                <i className="w-[25px] h-[25px] mr-2 rounded-full cursor-pointer flex items-center justify-center  bg-[#302d31]" />
-                <span className="truncate">Baltic Sea</span>
-              </div>
-            </div>
-          )}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,4 +1,14 @@
 import { attractor } from "./AttractorFunctions";
-import { LeftArrow, ScreenShot, ColorSwatch, Close } from "./svg";
+import { LeftArrow, ScreenShot, ColorSwatch, Close, Swap } from "./svg";
 
-export { attractor, LeftArrow, ScreenShot, ColorSwatch, Close };
+import { colorList } from "./util";
+
+export {
+  colorList,
+  attractor,
+  LeftArrow,
+  ScreenShot,
+  ColorSwatch,
+  Close,
+  Swap,
+};
