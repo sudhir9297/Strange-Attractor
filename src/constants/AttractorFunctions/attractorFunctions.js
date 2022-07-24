@@ -23,7 +23,7 @@ export const lorenzAttractor = (data) => {
     [start]
   );
 };
-// TODO : Need to Fix Aizaawa Attractor
+
 export const AizawaAttractor = (data) => {
   const {
     epsilom = 0.25,
@@ -43,7 +43,7 @@ export const AizawaAttractor = (data) => {
     (acc, val, i) => {
       const [x, y, z] = acc[i];
       acc.push([
-        x + increment * (z - beta) * x - y,
+        x + increment * (z - beta) * x - delta * y,
         y + increment * (delta * x + (z - beta) * y),
         z +
           increment *

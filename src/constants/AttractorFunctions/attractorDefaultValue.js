@@ -44,33 +44,33 @@ export const AizawaAttractorData = {
   menuData: {
     epsilom: {
       value: 0.25,
-      min: 0.01,
+      min: -10,
       max: 10,
-      step: 0.1,
+      step: 0.01,
     },
     alpha: {
       value: 0.95,
-      min: 0.01,
+      min: -10,
       max: 10,
-      step: 0.1,
+      step: 0.01,
     },
     gamma: {
       value: 0.6,
-      min: 0.01,
+      min: -2,
       max: 10,
-      step: 0.1,
+      step: 0.01,
     },
     delta: {
       value: 3.5,
-      min: 0.01,
-      max: 0.25,
+      min: 1,
+      max: 6,
       step: 0.1,
     },
     sigma: {
       value: 0.1,
-      min: 0.01,
+      min: -2,
       max: 10,
-      step: 0.1,
+      step: 0.01,
     },
     beta: {
       value: 0.7,
