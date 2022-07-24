@@ -24,7 +24,7 @@ const Attractor = ({
   },
   useUiMenu,
 }) => {
-  // let data = useControls({ ...menuData }, [menuData]);;
+  // let data = useControls({ ...menuData }, [menuData]);
   // data = useControls({ ...menuData }, [menuData]);
 
   // if (!useUiMenu) {
@@ -49,7 +49,8 @@ const Attractor = ({
     instance.current.instanceMatrix.needsUpdate = true;
   });
 
-  const { ...props } = useControls({
+  const { size, ...props } = useControls({
+    size: { value: 0.5, min: 0, max: 1, step: 0.01 },
     color: "#FFD700",
     metalness: { value: 0.93, min: 0, max: 1 },
     roughness: { value: 0.1, min: 0, max: 1 },
@@ -65,9 +66,9 @@ const Attractor = ({
     >
       <roundedBoxGeometry
         receiveShadow
-        args={[0.5 * s, 0.5 * s, 0.5 * s, 1, 0.075]}
+        args={[size * s, size * s, size * s, 1, 0.075]}
       />
-      {/* <sphereBufferGeometry args={[0.1]} castShadow receiveShadow>
+      {/* <sphereBufferGeometry args={[size]} castShadow receiveShadow>
         <instancedBufferAttribute />
       </sphereBufferGeometry> */}
       <meshStandardMaterial {...props} attach="material" />
@@ -78,6 +79,7 @@ const Attractor = ({
 function HomePage() {
   const [currentAttractor, setCurrentAttractor] = useState(attractor[0]);
   const [useUiMenu, setUiMenu] = useState(true);
+  console.log(currentAttractor);
 
   const [colorDropDown, setColorDropDown] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState(colorList[0].color);

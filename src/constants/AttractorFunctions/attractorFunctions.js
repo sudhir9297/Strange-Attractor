@@ -136,3 +136,57 @@ export const BurkeShawAttractor = (data) => {
     [start]
   );
 };
+
+export const ChenCelikovskyAttractor = (data) => {
+  const {
+    alpha = 36,
+    beta = 3,
+    delta = 20,
+
+    length = 1200,
+    start = [0.01, 0.01, 0.01],
+  } = data;
+  const POINTCAP = 20000;
+  const arrayLength = Math.min(POINTCAP, length);
+  const increment = data.increment / 1000;
+
+  return new Array(arrayLength).fill([0, 0, 0]).reduce(
+    (acc, val, i) => {
+      const [x, y, z] = acc[i];
+      acc.push([
+        x + increment * (alpha * (y - x)),
+        y + increment * (-x * z + delta * y),
+        z + increment * (x * y - beta * z),
+      ]);
+      return acc;
+    },
+    [start]
+  );
+};
+
+export const ChenLeeAttractor = (data) => {
+  const {
+    alpha = 5,
+    beta = -10,
+    delta = 0.38,
+
+    length = 1200,
+    start = [0.01, 0.01, 0.01],
+  } = data;
+  const POINTCAP = 20000;
+  const arrayLength = Math.min(POINTCAP, length);
+  const increment = data.increment / 1000;
+
+  return new Array(arrayLength).fill([0, 0, 0]).reduce(
+    (acc, val, i) => {
+      const [x, y, z] = acc[i];
+      acc.push([
+        x + increment * (alpha * x - y * z),
+        y + increment * (beta * y + x * z),
+        z + increment * (delta * z + x * (y / 3)),
+      ]);
+      return acc;
+    },
+    [start]
+  );
+};

@@ -215,3 +215,87 @@ export const BurkeShawAttractorData = {
     increment: 25,
   },
 };
+
+export const ChenCelikovskyAttractorData = {
+  menuData: {
+    alpha: {
+      value: 19,
+      min: 1,
+      max: 40,
+      step: 0.1,
+    },
+    beta: {
+      value: 2.85,
+      min: -5,
+      max: 10,
+      step: 0.01,
+    },
+    delta: {
+      value: 9.9,
+      min: -10,
+      max: 30,
+      step: 0.1,
+    },
+    increment: {
+      value: 6,
+      min: 1,
+      max: 25,
+      step: 1,
+    },
+    length: {
+      value: 6000,
+      min: 1000,
+      max: 20000,
+      step: 1000,
+    },
+  },
+  state: {
+    alpha: 19,
+    beta: 2.85,
+    delta: 9.9,
+    length: 60000,
+    increment: 6,
+  },
+};
+
+export const ChenLeeAttractorData = {
+  menuData: {
+    alpha: {
+      value: 0.57,
+      min: -3,
+      max: 3,
+      step: 0.001,
+    },
+    beta: {
+      value: -2.96,
+      min: -10,
+      max: 1,
+      step: 0.001,
+    },
+    delta: {
+      value: -0.35,
+      min: -2,
+      max: 2,
+      step: 0.001,
+    },
+    increment: {
+      value: 19,
+      min: 1,
+      max: 25,
+      step: 1,
+    },
+    length: {
+      value: 20000,
+      min: 1000,
+      max: 20000,
+      step: 1000,
+    },
+  },
+  state: {
+    alpha: 0.57,
+    beta: -2.96,
+    delta: -0.35,
+    length: 20000,
+    increment: 19,
+  },
+};
