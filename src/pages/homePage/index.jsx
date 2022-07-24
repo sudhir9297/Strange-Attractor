@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useMemo, Suspense, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame, extend } from "@react-three/fiber";
 import {
   OrbitControls,
   PerspectiveCamera,
@@ -12,9 +12,13 @@ import {
 import createStrore from "zustand";
 import { useControls, Leva } from "leva";
 
+import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry";
 import * as THREE from "three";
-
 import { attractor } from "../../constants";
+
+import CanvasOption from "./canvasOptions";
+
+extend({ RoundedBoxGeometry });
 
 const Attractor = ({
   attractorData: {
@@ -50,29 +54,53 @@ const Attractor = ({
 
   const { ...props } = useControls({
     color: "#FFD700",
-    metalness: { value: 0.73, min: 0, max: 1 },
-    roughness: { value: 0.11, min: 0, max: 1 },
+    metalness: { value: 0.93, min: 0, max: 1 },
+    roughness: { value: 0.1, min: 0, max: 1 },
   });
 
+  const s = 1 + Math.sin(2 * 10) / 10;
   return (
-    <instancedMesh ref={instance} args={[null, null, meshList.length]}>
-      <sphereBufferGeometry args={[0.1]} castShadow receiveShadow>
+    <instancedMesh
+      ref={instance}
+      args={[null, null, meshList.length]}
+      receiveShadow
+      castShadow
+    >
+      <roundedBoxGeometry args={[1 * s, 1 * s, 1 * s, 1, 0.075 * s]} />
+      {/* <sphereBufferGeometry args={[0.1]} castShadow receiveShadow>
         <instancedBufferAttribute />
-      </sphereBufferGeometry>
+      </sphereBufferGeometry> */}
       <meshStandardMaterial {...props} attach="material" />
     </instancedMesh>
   );
 };
 
 function HomePage() {
-  const [currentAttractor, setCurrentAttractor] = useState(attractor[4]);
+  const [currentAttractor, setCurrentAttractor] = useState(attractor[0]);
   const [useUiMenu, setUiMenu] = useState(true);
 
+  const [colorDropDown, setColorDropDown] = useState(true);
+  const [backgroundColor, setBackgroundColor] = useState("#DFF0F0");
+
+  const handleColorDropDown = (value) => {
+    setColorDropDown(value);
+  };
+
+  const handleColorClicked = (value) => {
+    setBackgroundColor(value);
+  };
+
   return (
-    <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
+    <div className="w-screen h-screen z-0 relative">
+      <CanvasOption
+        colorDropDown={colorDropDown}
+        handleColorDropDown={handleColorDropDown}
+        handleColorClicked={handleColorClicked}
+      />
+
       <Canvas>
         <Suspense fallback={null}>
-          <Environment preset="city" />
+          <Environment preset="studio" />
           <PerspectiveCamera makeDefault position={[100, 100, 100]} />
           <OrbitControls makeDefault />
           {/* <ContactShadows
@@ -82,11 +110,18 @@ function HomePage() {
             blur={1}
             far={1}
           /> */}
-          <Attractor attractorData={currentAttractor} useUiMenu={useUiMenu} />
+          <group rotation={[0, Math.PI, 0]}>
+            <Attractor attractorData={currentAttractor} useUiMenu={useUiMenu} />
+          </group>
+
           {!useUiMenu && <Leva hidden />}
         </Suspense>
 
-        <color args={["#162837"]} attach="background" />
+        <ambientLight intensity={1} />
+        <pointLight position={[-10, 0, 0]} intensity={10} />
+        <pointLight position={[10, 10, 10]} intensity={2} castShadow />
+
+        <color args={[backgroundColor]} attach="background" />
       </Canvas>
     </div>
   );
