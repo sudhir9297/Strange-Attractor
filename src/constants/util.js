@@ -1,19 +1,19 @@
 export const colorList = [
   {
     id: 1,
-    name: "Ziggurat",
-    color: "#394458",
+    name: "Cod Gray",
+    color: "#0C0C0C",
   },
   {
     id: 2,
-    name: "Swiss Coffee",
-    color: "#E5E5E7",
+    name: "Oxford Blue",
+    color: "#394458",
   },
 
   {
     id: 3,
-    name: "Link Water",
-    color: "#dbdac6",
+    name: "Woodsmoke",
+    color: "#0A0C0B",
   },
   {
     id: 4,
@@ -23,13 +23,13 @@ export const colorList = [
 
   {
     id: 5,
-    name: "Shuttle Gray",
-    color: "#5b6069",
+    name: "Mine Shaft",
+    color: "#303030",
   },
   {
     id: 6,
-    name: "Baltic Sea",
-    color: "#302d31",
+    name: "Silver Sand",
+    color: "#C9CACC",
   },
 ];
 

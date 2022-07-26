@@ -6,6 +6,10 @@ import {
   BurkeShawAttractorData,
   ChenCelikovskyAttractorData,
   ChenLeeAttractorData,
+  ChuaAttractorData,
+  CoulletAttractorData,
+  DadrasAttractorData,
+  DequanLiAttractorData,
 } from "./attractorDefaultValue.js";
 import {
   lorenzAttractor,
@@ -15,6 +19,10 @@ import {
   BurkeShawAttractor,
   ChenCelikovskyAttractor,
   ChenLeeAttractor,
+  ChuaAttractor,
+  CoulletAttractor,
+  DadrasAttractor,
+  DequanLiAttractor,
 } from "./attractorFunctions.js";
 
 export const attractor = [
@@ -62,5 +70,33 @@ export const attractor = [
     name: "Chen-Lee Attractor",
     data: ChenLeeAttractorData,
     func: ChenLeeAttractor,
+  },
+
+  {
+    id: 8,
+    name: "Chua Attractor",
+    data: ChuaAttractorData,
+    func: ChuaAttractor,
+  },
+
+  {
+    id: 9,
+    name: "Coullet Attractor",
+    data: CoulletAttractorData,
+    func: CoulletAttractor,
+  },
+
+  {
+    id: 10,
+    name: "Dadras Attractor",
+    data: DadrasAttractorData,
+    func: DadrasAttractor,
+  },
+
+  {
+    id: 11,
+    name: "Dequan Li Attractor",
+    data: DequanLiAttractorData,
+    func: DequanLiAttractor,
   },
 ];
