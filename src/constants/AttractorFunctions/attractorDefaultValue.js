@@ -551,3 +551,376 @@ export const DequanLiAttractorData = {
     increment: 1,
   },
 };
+
+export const FinanceAttractorData = {
+  menuData: {
+    alpha: {
+      value: -0.02,
+      min: -1,
+      max: 1,
+      step: 0.0001,
+    },
+    beta: {
+      value: 0.21,
+      min: -1,
+      max: 1,
+      step: 0.001,
+    },
+    sigma: {
+      value: 1.04,
+      min: 0,
+      max: 3,
+      step: 0.01,
+    },
+
+    size: {
+      value: 0.11,
+      min: 0,
+      max: 2,
+      step: 0.01,
+    },
+    increment: {
+      value: 20,
+      min: 1,
+      max: 25,
+      step: 1,
+    },
+    length: {
+      value: 20000,
+      min: 1000,
+      max: 20000,
+      step: 1000,
+    },
+  },
+  state: {
+    alpha: -0.02,
+    beta: 0.21,
+    sigma: 1.04,
+
+    size: 0.11,
+    length: 20000,
+    increment: 20,
+  },
+};
+
+export const FourWingAttractorData = {
+  menuData: {
+    alpha: {
+      value: 4,
+      min: 1,
+      max: 8,
+      step: 0.001,
+    },
+    beta: {
+      value: 6,
+      min: 1,
+      max: 9,
+      step: 0.001,
+    },
+    sigma: {
+      value: 10,
+      min: 8,
+      max: 15,
+      step: 0.001,
+    },
+    delta: {
+      value: 5,
+      min: 0,
+      max: 8,
+      step: 0.001,
+    },
+    k: {
+      value: 1,
+      min: -2,
+      max: 2,
+      step: 0.001,
+    },
+
+    size: {
+      value: 0.11,
+      min: 0,
+      max: 2,
+      step: 0.01,
+    },
+    increment: {
+      value: 20,
+      min: 1,
+      max: 25,
+      step: 1,
+    },
+    length: {
+      value: 20000,
+      min: 1000,
+      max: 20000,
+      step: 1000,
+    },
+  },
+  state: {
+    alpha: 4,
+    beta: 6,
+    sigma: 10,
+    delta: 5,
+    k: 1,
+
+    size: 0.11,
+    length: 20000,
+    increment: 20,
+  },
+};
+
+export const GenesioTesiAttractorData = {
+  menuData: {
+    alpha: {
+      value: 0.444,
+      min: -2,
+      max: 2,
+      step: 0.001,
+    },
+    beta: {
+      value: 1.1,
+      min: -1,
+      max: 2,
+      step: 0.001,
+    },
+    delta: {
+      value: 1,
+      min: -2,
+      max: 2,
+      step: 0.001,
+    },
+
+    size: {
+      value: 0.02,
+      min: 0,
+      max: 2,
+      step: 0.01,
+    },
+    increment: {
+      value: 20,
+      min: 1,
+      max: 25,
+      step: 1,
+    },
+    length: {
+      value: 20000,
+      min: 1000,
+      max: 20000,
+      step: 1000,
+    },
+  },
+  state: {
+    alpha: 0.44,
+    beta: 1.1,
+    delta: 1,
+
+    size: 0.02,
+    length: 20000,
+    increment: 20,
+  },
+};
+
+export const HadleyAttractorData = {
+  menuData: {
+    alpha: {
+      value: 0.51,
+      min: -2,
+      max: 2,
+      step: 0.001,
+    },
+    beta: {
+      value: 3.94,
+      min: 1,
+      max: 8,
+      step: 0.001,
+    },
+    sigma: {
+      value: 8.02,
+      min: 4,
+      max: 12,
+      step: 0.01,
+    },
+    delta: {
+      value: -0.1,
+      min: -2,
+      max: 2,
+      step: 0.01,
+    },
+
+    size: {
+      value: 0.22,
+      min: 0,
+      max: 2,
+      step: 0.01,
+    },
+    increment: {
+      value: 1,
+      min: 1,
+      max: 25,
+      step: 1,
+    },
+    length: {
+      value: 20000,
+      min: 1000,
+      max: 20000,
+      step: 1000,
+    },
+  },
+  state: {
+    alpha: 0.51,
+    beta: 3.94,
+    sigma: 8.02,
+    delta: -0.1,
+
+    size: 0.22,
+    length: 20000,
+    increment: 1,
+  },
+};
+
+export const HalvorsenAttractorData = {
+  menuData: {
+    alpha: {
+      value: 1.4,
+      min: -2,
+      max: 5,
+      step: 0.001,
+    },
+    size: {
+      value: 0.22,
+      min: 0,
+      max: 2,
+      step: 0.01,
+    },
+    increment: {
+      value: 1,
+      min: 1,
+      max: 25,
+      step: 1,
+    },
+    length: {
+      value: 20000,
+      min: 1000,
+      max: 20000,
+      step: 1000,
+    },
+  },
+  state: {
+    alpha: 1.4,
+
+    size: 0.22,
+    length: 20000,
+    increment: 1,
+  },
+};
+
+export const LiuChenAttractorData = {
+  menuData: {
+    alpha: {
+      value: 2.4,
+      min: -2,
+      max: 3,
+      step: 0.001,
+    },
+    beta: {
+      value: -3.78,
+      min: -6,
+      max: 2,
+      step: 0.001,
+    },
+    delta2: {
+      value: 14,
+      min: 7,
+      max: 20,
+      step: 0.01,
+    },
+    delta: {
+      value: -11,
+      min: -15,
+      max: 1,
+      step: 0.01,
+    },
+    upsilon: {
+      value: 4,
+      min: 1,
+      max: 7,
+      step: 0.001,
+    },
+    sigma: {
+      value: 5.58,
+      min: 1,
+      max: 8,
+      step: 0.001,
+    },
+    rho: {
+      value: 1,
+      min: -2,
+      max: 2,
+      step: 0.001,
+    },
+    size: {
+      value: 0.22,
+      min: 0,
+      max: 2,
+      step: 0.01,
+    },
+    increment: {
+      value: 1,
+      min: 1,
+      max: 25,
+      step: 1,
+    },
+    length: {
+      value: 20000,
+      min: 1000,
+      max: 20000,
+      step: 1000,
+    },
+  },
+  state: {
+    alpha: 2.4,
+    beta: -3.78,
+    delta2: 14,
+    delta: 11,
+    upsilon: 4,
+    sigma: 5.58,
+    rho: 1,
+    size: 0.22,
+    length: 20000,
+    increment: 1,
+  },
+};
+
+export const ThomasAttractorData = {
+  menuData: {
+    beta: {
+      value: 0.19,
+      min: -5,
+      max: 5,
+      step: 0.001,
+    },
+    size: {
+      value: 0.22,
+      min: 0,
+      max: 2,
+      step: 0.01,
+    },
+    increment: {
+      value: 25,
+      min: 1,
+      max: 25,
+      step: 1,
+    },
+    length: {
+      value: 20000,
+      min: 1000,
+      max: 20000,
+      step: 1000,
+    },
+  },
+  state: {
+    beta: 0.19,
+    size: 0.22,
+    length: 20000,
+    increment: 25,
+  },
+};

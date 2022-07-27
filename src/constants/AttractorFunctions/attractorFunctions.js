@@ -23,7 +23,7 @@ export const lorenzAttractor = (data) => {
     [start]
   );
 };
-
+//not working
 export const AizawaAttractor = (data) => {
   const {
     epsilom = 0.25,
@@ -43,7 +43,7 @@ export const AizawaAttractor = (data) => {
     (acc, val, i) => {
       const [x, y, z] = acc[i];
       acc.push([
-        x + increment * (z - beta) * x - delta * y,
+        x + increment * ((z - beta) * x) - delta * y,
         y + increment * (delta * x + (z - beta) * y),
         z +
           increment *
@@ -305,6 +305,191 @@ export const DequanLiAttractor = (data) => {
         x + increment * (alpha * (y - x) + delta * x * z),
         y + increment * (rho * x + sigma * y - x * z),
         z + increment * (beta * z + x * y - upsilon * Math.pow(x, 2)),
+      ]);
+      return acc;
+    },
+    [start]
+  );
+};
+
+export const FinanceAttractor = (data) => {
+  const {
+    alpha = 0.001,
+    beta = 0.2,
+    sigma = 1.1,
+
+    length = 1200,
+    start = [0.01, 0.01, 0.01],
+  } = data;
+  const POINTCAP = 20000;
+  const arrayLength = Math.min(POINTCAP, length);
+  const increment = data.increment / 1000;
+
+  return new Array(arrayLength).fill([0, 0, 0]).reduce(
+    (acc, val, i) => {
+      const [x, y, z] = acc[i];
+      acc.push([
+        x + increment * ((1 / beta - alpha) * x + z + x * y),
+        y + increment * (-beta * y - Math.pow(x, 2)),
+        z + increment * (-x - sigma * z),
+      ]);
+      return acc;
+    },
+    [start]
+  );
+};
+
+//not working
+export const FourWingAttractor = (data) => {
+  const {
+    alpha = 4,
+    beta = 6,
+    sigma = 10,
+    delta = 5,
+    k = 1,
+
+    length = 1200,
+    start = [0.01, 0.01, 0.01],
+  } = data;
+  const POINTCAP = 20000;
+  const arrayLength = Math.min(POINTCAP, length);
+  const increment = data.increment / 1000;
+
+  return new Array(arrayLength).fill([0, 0, 0]).reduce(
+    (acc, val, i) => {
+      const [x, y, z] = acc[i];
+      acc.push([
+        x + increment * (alpha * x - beta * y * z),
+        y + increment * (-sigma * y + x * z),
+        z + increment * (k * x - delta * z + x * z),
+      ]);
+      return acc;
+    },
+    [start]
+  );
+};
+
+export const GenesioTesiAttractor = (data) => {
+  const {
+    alpha = 0.44,
+    beta = 1.1,
+    delta = 1,
+
+    length = 1200,
+    start = [0.01, 0.01, 0.01],
+  } = data;
+  const POINTCAP = 20000;
+  const arrayLength = Math.min(POINTCAP, length);
+  const increment = data.increment / 1000;
+
+  return new Array(arrayLength).fill([0, 0, 0]).reduce(
+    (acc, val, i) => {
+      const [x, y, z] = acc[i];
+      acc.push([
+        x + increment * y,
+        y + increment * z,
+        z + increment * (-delta * x - beta * y - alpha * z + x * x),
+      ]);
+      return acc;
+    },
+    [start]
+  );
+};
+
+export const HadleyAttractor = (data) => {
+  const {
+    alpha = 0.2,
+    beta = 4,
+    sigma = 8,
+    delta = 1,
+
+    length = 1200,
+    start = [0.01, 0.01, 0.01],
+  } = data;
+  const POINTCAP = 20000;
+  const arrayLength = Math.min(POINTCAP, length);
+  const increment = data.increment / 1000;
+
+  return new Array(arrayLength).fill([0, 0, 0]).reduce(
+    (acc, val, i) => {
+      const [x, y, z] = acc[i];
+      acc.push([
+        x +
+          increment *
+            (Math.pow(-y, 2) - Math.pow(z, 2) - alpha * x + alpha * sigma),
+        y + increment * (x * y - beta * x * z - y + delta),
+        z + increment * (beta * x * y + x * z - z),
+      ]);
+      return acc;
+    },
+    [start]
+  );
+};
+
+//not working
+export const HalvorsenAttractor = (data) => {
+  const { alpha = 1.4, length = 1200, start = [0.01, 0.01, 0.01] } = data;
+  const POINTCAP = 20000;
+  const arrayLength = Math.min(POINTCAP, length);
+  const increment = data.increment / 1000;
+
+  return new Array(arrayLength).fill([0, 0, 0]).reduce(
+    (acc, val, i) => {
+      const [x, y, z] = acc[i];
+      acc.push([
+        x + increment * (-alpha * x - 4 * y - 4 * z - Math.pow(y, 2)),
+        y + increment * (-alpha * y - 4 * z - 4 * x - Math.pow(z, 2)),
+        z + increment * (-alpha * z - 4 * x - 4 * y - Math.pow(x, 2)),
+      ]);
+      return acc;
+    },
+    [start]
+  );
+};
+//not working
+export const LiuChenAttractor = (data) => {
+  const {
+    alpha = 2.4,
+    beta = -3.78,
+    delta2 = 14,
+    delta = -11,
+    upsilon = 4,
+    sigma = 5.58,
+    rho = 1,
+    length = 1200,
+    start = [0.01, 0.01, 0.01],
+  } = data;
+  const POINTCAP = 20000;
+  const arrayLength = Math.min(POINTCAP, length);
+  const increment = data.increment / 1000;
+
+  return new Array(arrayLength).fill([0, 0, 0]).reduce(
+    (acc, val, i) => {
+      const [x, y, z] = acc[i];
+      acc.push([
+        x + increment * (alpha * y + beta * x + delta2 * y * z),
+        y + increment * (delta * y - z + upsilon * x * z),
+        z + increment * (sigma * z + rho * x * y),
+      ]);
+      return acc;
+    },
+    [start]
+  );
+};
+//not working
+export const ThomasAttractor = (data) => {
+  const { beta = 0.19, length = 1200, start = [0.01, 0.01, 0.01] } = data;
+  const POINTCAP = 20000;
+  const arrayLength = Math.min(POINTCAP, length);
+  const increment = data.increment / 1000;
+
+  return new Array(arrayLength).fill([0, 0, 0]).reduce(
+    (acc, val, i) => {
+      const [x, y, z] = acc[i];
+      acc.push([
+        x + increment * (beta * x + Math.sin(y)),
+        y + increment * (-beta * y + Math.sin(z)),
+        z + increment * (-beta * z + Math.sin(x)),
       ]);
       return acc;
     },

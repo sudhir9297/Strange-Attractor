@@ -10,6 +10,13 @@ import {
   CoulletAttractorData,
   DadrasAttractorData,
   DequanLiAttractorData,
+  FinanceAttractorData,
+  FourWingAttractorData,
+  GenesioTesiAttractorData,
+  HadleyAttractorData,
+  HalvorsenAttractorData,
+  LiuChenAttractorData,
+  ThomasAttractorData,
 } from "./attractorDefaultValue.js";
 import {
   lorenzAttractor,
@@ -23,6 +30,13 @@ import {
   CoulletAttractor,
   DadrasAttractor,
   DequanLiAttractor,
+  FinanceAttractor,
+  FourWingAttractor,
+  GenesioTesiAttractor,
+  HadleyAttractor,
+  HalvorsenAttractor,
+  LiuChenAttractor,
+  ThomasAttractor,
 } from "./attractorFunctions.js";
 
 export const attractor = [
@@ -99,4 +113,51 @@ export const attractor = [
     data: DequanLiAttractorData,
     func: DequanLiAttractor,
   },
+
+  {
+    id: 12,
+    name: "Finance Attractor",
+    data: FinanceAttractorData,
+    func: FinanceAttractor,
+  },
+  // {
+  //   id: 13,
+  //   name: "Four Wing Attractor",
+  //   data: FourWingAttractorData,
+  //   func: FourWingAttractor,
+  // },
+
+  // {
+  //   id: 14,
+  //   name: "Genesio-Tesi Attractor",
+  //   data: GenesioTesiAttractorData,
+  //   func: GenesioTesiAttractor,
+  // },
+  {
+    id: 15,
+    name: "Hadley Attractor",
+    data: HadleyAttractorData,
+    func: HadleyAttractor,
+  },
+
+  // {
+  //   id: 16,
+  //   name: "Halvorsen Attractor",
+  //   data: HalvorsenAttractorData,
+  //   func: HalvorsenAttractor,
+  // },
+
+  // {
+  //   id: 17,
+  //   name: "Liu Chen Attractor",
+  //   data: LiuChenAttractorData,
+  //   func: LiuChenAttractor,
+  // },
+
+  // {
+  //   id: 18,
+  //   name: "Liu Chen Attractor",
+  //   data: ThomasAttractorData,
+  //   func: ThomasAttractor,
+  // },
 ];
