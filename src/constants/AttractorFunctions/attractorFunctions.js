@@ -44,7 +44,7 @@ export const AizawaAttractor = (data) => {
       const [x, y, z] = acc[i];
       acc.push([
         x + increment * ((z - beta) * x) - delta * y,
-        y + increment * (delta * x + (z - beta) * y),
+        y + increment * (delta * x - (z - beta) * y),
         z +
           increment *
             (gamma +
@@ -272,7 +272,7 @@ export const DadrasAttractor = (data) => {
     (acc, val, i) => {
       const [x, y, z] = acc[i];
       acc.push([
-        x + increment * (-psi * x + rho * y * z),
+        x + increment * (y - psi * x + rho * y * z),
         y + increment * (r * y - x * z + z),
         z + increment * (sigma * x * y - upsilon * z),
       ]);
@@ -426,7 +426,7 @@ export const HadleyAttractor = (data) => {
   );
 };
 
-//not working
+//cannot visualise as value are too small
 export const HalvorsenAttractor = (data) => {
   const { alpha = 1.4, length = 1200, start = [0.01, 0.01, 0.01] } = data;
   const POINTCAP = 20000;
@@ -437,9 +437,9 @@ export const HalvorsenAttractor = (data) => {
     (acc, val, i) => {
       const [x, y, z] = acc[i];
       acc.push([
-        x + increment * (-alpha * x - 4 * y - 4 * z - Math.pow(y, 2)),
-        y + increment * (-alpha * y - 4 * z - 4 * x - Math.pow(z, 2)),
-        z + increment * (-alpha * z - 4 * x - 4 * y - Math.pow(x, 2)),
+        x + increment * (-alpha * x - 4 * y - 4 * z + Math.pow(-y, 2)),
+        y + increment * (-alpha * y - 4 * z - 4 * x + Math.pow(-z, 2)),
+        z + increment * (-alpha * z - 4 * x - 4 * y + Math.pow(-x, 2)),
       ]);
       return acc;
     },
@@ -461,7 +461,7 @@ export const LiuChenAttractor = (data) => {
   } = data;
   const POINTCAP = 20000;
   const arrayLength = Math.min(POINTCAP, length);
-  const increment = data.increment / 1000;
+  const increment = data.increment / 50;
 
   return new Array(arrayLength).fill([0, 0, 0]).reduce(
     (acc, val, i) => {
@@ -481,15 +481,15 @@ export const ThomasAttractor = (data) => {
   const { beta = 0.19, length = 1200, start = [0.01, 0.01, 0.01] } = data;
   const POINTCAP = 20000;
   const arrayLength = Math.min(POINTCAP, length);
-  const increment = data.increment / 1000;
+  const increment = data.increment / 100;
 
   return new Array(arrayLength).fill([0, 0, 0]).reduce(
     (acc, val, i) => {
       const [x, y, z] = acc[i];
       acc.push([
-        x + increment * (beta * x + Math.sin(y)),
-        y + increment * (-beta * y + Math.sin(z)),
-        z + increment * (-beta * z + Math.sin(x)),
+        x + increment * (Math.sin(y) - beta * x),
+        y + increment * (Math.sin(z) - beta * y),
+        z + increment * (Math.sin(x) - beta * z),
       ]);
       return acc;
     },
