@@ -5,7 +5,6 @@ import {
   PerspectiveCamera,
   Environment,
 } from "@react-three/drei";
-import { Leva } from "leva";
 
 import { attractor, colorList } from "../../constants";
 
@@ -17,14 +16,9 @@ import Attractor from "./Attractor";
 function HomePage() {
   const [currentAttractor, setCurrentAttractor] = useState(attractor[0]);
 
-  const [colorDropDown, setColorDropDown] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState(colorList[0].color);
 
   const [attractorDropDown, setAttractorDropDown] = useState(false);
-
-  const handleColorDropDown = (value) => {
-    setColorDropDown(value);
-  };
 
   const handleColorClicked = (value) => {
     setBackgroundColor(value);
@@ -39,10 +33,8 @@ function HomePage() {
   };
 
   return (
-    <div className="w-screen h-screen z-0 relative">
+    <div className="w-screen h-screen z-0 relative overflow-hidden">
       <CanvasOption
-        colorDropDown={colorDropDown}
-        handleColorDropDown={handleColorDropDown}
         handleColorClicked={handleColorClicked}
         attractorDropDown={attractorDropDown}
         handleAttractorDropdown={handleAttractorDropdown}
@@ -68,7 +60,7 @@ function HomePage() {
 
         {/* <Effect /> */}
       </Canvas>
-      <div className="absolute bottom-0 px-2  left-0 ml-4 mb-4 bg-black/50 text-white">
+      <div className="absolute bottom-0 px-2  right-0 mr-4 mb-4 bg-black/50 text-white rounded">
         {currentAttractor.name}
       </div>
     </div>

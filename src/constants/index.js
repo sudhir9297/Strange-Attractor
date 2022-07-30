@@ -1,5 +1,12 @@
 import { attractor } from "./AttractorFunctions";
-import { LeftArrow, ScreenShot, ColorSwatch, Close, Swap } from "./svg";
+import {
+  LeftArrow,
+  ScreenShot,
+  ColorSwatch,
+  Close,
+  Swap,
+  GithubIcon,
+} from "./svg";
 import { colorList } from "./util";
 
 export {
@@ -10,4 +17,5 @@ export {
   ColorSwatch,
   Close,
   Swap,
+  GithubIcon,
 };

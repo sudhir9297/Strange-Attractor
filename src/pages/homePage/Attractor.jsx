@@ -52,6 +52,7 @@ const Attractor = ({
         <sphereBufferGeometry args={[state.size]} castShadow receiveShadow>
           <instancedBufferAttribute />
         </sphereBufferGeometry>
+
         <meshStandardMaterial {...props} attach="material" />
       </instancedMesh>
       <Floor shadowPosition={shadowPosition} />

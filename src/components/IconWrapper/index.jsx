@@ -20,7 +20,7 @@ function IconWrapper({
       {showTooltip && (
         <div
           id="tooltip"
-          className="z-2 invisible  absolute top-[125%] bg-black/10 text-white px-1.5 py-1 text-center text-xs group-hover:visible"
+          className="z-2 rounded invisible absolute left-[120%] bg-black/10 text-white px-1.5 py-1 text-center text-xs group-hover:visible"
           style={{ ...toolTipStyle }}
         >
           {tooltip}
