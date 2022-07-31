@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  ColorSwatch,
-  Swap,
-  attractor,
-  GithubIcon,
-  colorList,
-} from "../../constants";
+import { Swap, attractor, GithubIcon, colorList } from "../../constants";
 import { IconWrapper } from "../../components";
 
 function CanvasOptions({
@@ -29,10 +23,10 @@ function CanvasOptions({
             {attractor.map((o, index) => (
               <div
                 key={index}
-                className="flex items-flex justify-start text-base my-2 mx-2 cursor-pointer"
+                className="flex items-flex justify-start text-base my-2 mx-2 cursor-pointer "
                 onClick={() => handleAttractorClicked(o)}
               >
-                <span className="truncate">{o.name}</span>
+                <span className="truncate select-none">{o.name}</span>
               </div>
             ))}
           </div>

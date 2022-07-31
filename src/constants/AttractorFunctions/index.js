@@ -50,16 +50,9 @@ export const attractor = [
     groupPosition: [0, -10, 0],
     structuredRotation: [-1.573, 0, 0],
     structuredPosition: [0, 0, 0],
+    shadowScale: 60,
   },
-  // {
-  //   id: 2,
-  //   name: "Aizawa Attractor",
-  //   data: AizawaAttractorData,
-  //   func: AizawaAttractor,
-  //   shadowPosition: [0, 0, 0],
-  //   cameraPosition: [40, 50, 40],
-  //   groupPosition: [0, 0, 0], structuredPosition: [0, 0, 0],
-  // },
+
   {
     id: 3,
     name: "Arneodo Attractor",
@@ -70,6 +63,7 @@ export const attractor = [
     groupPosition: [0, 0, 0],
     structuredRotation: [0, 0, 1.57],
     structuredPosition: [0, 0, 0],
+    shadowScale: 50,
   },
 
   {
@@ -82,6 +76,7 @@ export const attractor = [
     groupPosition: [0, -10, 0],
     structuredRotation: [0, 1.53, 0],
     structuredPosition: [0, 0, 0],
+    shadowScale: 30,
   },
   {
     id: 5,
@@ -93,6 +88,7 @@ export const attractor = [
     groupPosition: [0, 0, 0],
     structuredRotation: [-1.57, 0, 1.57],
     structuredPosition: [0, 0, 0],
+    shadowScale: 10,
   },
 
   {
@@ -105,6 +101,7 @@ export const attractor = [
     groupPosition: [0, -10, 0],
     structuredRotation: [-1.57, 0, 0],
     structuredPosition: [0, 0, 0],
+    shadowScale: 60,
   },
 
   {
@@ -117,6 +114,7 @@ export const attractor = [
     groupPosition: [0, 0, 0],
     structuredRotation: [-1.57, 0, 0],
     structuredPosition: [0, 0, 0],
+    shadowScale: 40,
   },
 
   {
@@ -129,6 +127,7 @@ export const attractor = [
     groupPosition: [0, 0, 0],
     structuredRotation: [-1.57, 0, 0.785],
     structuredPosition: [0, 0, 0],
+    shadowScale: 20,
   },
 
   {
@@ -141,6 +140,7 @@ export const attractor = [
     groupPosition: [0, 0, 0],
     structuredRotation: [0, 0, 1.57],
     structuredPosition: [0, 0, 0],
+    shadowScale: 10,
   },
 
   {
@@ -153,6 +153,7 @@ export const attractor = [
     groupPosition: [0, 0, 0],
     structuredRotation: [0, 0, 0],
     structuredPosition: [0, 0, 0],
+    shadowScale: 30,
   },
 
   {
@@ -165,6 +166,8 @@ export const attractor = [
     groupPosition: [0, -10, 0],
     structuredRotation: [1.57, 0, 1.57],
     structuredPosition: [0, 160, 0],
+    shadowScale: 300,
+    shadowFar: 30,
   },
 
   {
@@ -177,18 +180,8 @@ export const attractor = [
     groupPosition: [0, -4, 0],
     structuredRotation: [1.573, 1.573, 0],
     structuredPosition: [0, 3, 4],
+    shadowScale: 10,
   },
-  // {
-  //   id: 13,
-  //   name: "Four Wing Attractor",
-  //   data: FourWingAttractorData,
-  //   func: FourWingAttractor,
-  //   shadowPosition: [0, 0, 0],
-  //   cameraPosition: [40, 50, 40],
-  //   groupPosition: [0, 0, 0],
-  //   structuredRotation: [0, 0, 0],
-  //   structuredPosition: [0, 0, 0],
-  // },
 
   {
     id: 14,
@@ -200,6 +193,8 @@ export const attractor = [
     groupPosition: [0, -1, 0],
     structuredRotation: [0, 0, 0],
     structuredPosition: [0, 0.7, 0],
+    shadowScale: 5,
+    shadowFar: 1,
   },
   {
     id: 15,
@@ -211,7 +206,32 @@ export const attractor = [
     groupPosition: [0, 0, 0],
     structuredRotation: [0, 0, 0],
     structuredPosition: [0, 11, 0],
+    shadowScale: 50,
   },
+
+  // {
+  //   id: 2,
+  //   name: "Aizawa Attractor",
+  //   data: AizawaAttractorData,
+  //   func: AizawaAttractor,
+  //   shadowPosition: [0, 0, 0],
+  //   cameraPosition: [40, 50, 40],
+  //   groupPosition: [0, 0, 0],
+  //   structuredPosition: [0, 0, 0],
+  //   structuredRotation: [0, 0, 0],
+  // },
+
+  // {
+  //   id: 13,
+  //   name: "Four Wing Attractor",
+  //   data: FourWingAttractorData,
+  //   func: FourWingAttractor,
+  //   shadowPosition: [0, 0, 0],
+  //   cameraPosition: [40, 50, 40],
+  //   groupPosition: [0, 0, 0],
+  //   structuredRotation: [0, 0, 0],
+  //   structuredPosition: [0, 0, 0],
+  // },
 
   // {
   //   id: 16,

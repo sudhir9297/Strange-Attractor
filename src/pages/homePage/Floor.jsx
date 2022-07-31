@@ -1,18 +1,8 @@
 import React, { useRef } from "react";
-import {
-  useTexture,
-  Reflector,
-  ContactShadows,
-  BakeShadows,
-  useHelper,
-} from "@react-three/drei";
+import { ContactShadows, BakeShadows, useHelper } from "@react-three/drei";
 import * as THREE from "three";
 
-// import roughnessMap from "../../constants/assets/roughness_floor.jpeg";
-// import normalMap from "../../constants/assets/normal_floor.jpeg";
-
-function FloorContent({ shadowPosition }) {
-  // const [floor, normal] = useTexture([roughnessMap, normalMap]);
+function FloorContent({ shadowPosition, shadowScale, shadowFar }) {
   const contactShadow = useRef();
   useHelper(false && contactShadow, THREE.BoxHelper, "red");
 
@@ -21,13 +11,15 @@ function FloorContent({ shadowPosition }) {
       <ContactShadows
         ref={contactShadow}
         opacity={1}
-        scale={[500, 500]}
+        scale={[shadowScale, shadowScale]}
         blur={1}
-        far={30}
+        far={shadowFar ? shadowFar : 10}
+        near={0.1}
         position={shadowPosition}
-        resolution={1024}
+        resolution={2048}
         frames={1}
       />
+
       {/* <axesHelper scale={20} /> */}
       <BakeShadows />
     </group>

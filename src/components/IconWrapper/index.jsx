@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 function IconWrapper({
   children,
@@ -6,8 +6,6 @@ function IconWrapper({
   toolTipStyle,
   handleClick,
   showTooltip,
-  rotation = 12,
-  timing = 150,
 }) {
   return (
     <div className="group mx-2.5 my-0 cursor-pointer relative p-1.5 w-8 h-8 flex flex-col items-center justify-center rounded bg-black/10 ">

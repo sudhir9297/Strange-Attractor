@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   OrbitControls,
@@ -7,14 +7,25 @@ import {
 } from "@react-three/drei";
 
 import { attractor, colorList } from "../../constants";
-
 import CanvasOption from "./canvasOptions";
-import Effect from "./Effect";
-
 import Attractor from "./Attractor";
 
 function HomePage() {
+  const [reRender, setReRender] = useState(false);
+
   const [currentAttractor, setCurrentAttractor] = useState(attractor[0]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      handleAttractorClicked(attractor[0]);
+    }, 2000);
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setReRender(true);
+    }, 800);
+  }, [currentAttractor]);
 
   const [backgroundColor, setBackgroundColor] = useState(colorList[0].color);
 
@@ -30,6 +41,7 @@ function HomePage() {
 
   const handleAttractorClicked = (value) => {
     setCurrentAttractor(value);
+    setReRender(false);
   };
 
   return (
@@ -49,7 +61,7 @@ function HomePage() {
             position={currentAttractor.cameraPosition}
           />
           <OrbitControls makeDefault />
-          <Attractor attractorData={currentAttractor} />
+          <Attractor attractorData={currentAttractor} reRender={reRender} />
         </Suspense>
 
         <ambientLight intensity={1} />
