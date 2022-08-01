@@ -8,7 +8,8 @@ import {
 
 import { attractor, colorList } from "../../constants";
 import CanvasOption from "./canvasOptions";
-import Attractor from "./Attractor";
+import DotAttractor from "./DotAttractor";
+import TubeAttractor from "./TubeAttractor";
 
 function HomePage() {
   const [reRender, setReRender] = useState(false);
@@ -60,8 +61,10 @@ function HomePage() {
             makeDefault
             position={currentAttractor.cameraPosition}
           />
-          <OrbitControls makeDefault />
-          <Attractor attractorData={currentAttractor} reRender={reRender} />
+          <OrbitControls makeDefault enablePan={false} enableZoom={true} />
+          {/* <DotAttractor attractorData={currentAttractor} reRender={reRender} /> */}
+
+          <TubeAttractor attractorData={currentAttractor} reRender={reRender} />
         </Suspense>
 
         <ambientLight intensity={1} />
@@ -69,8 +72,6 @@ function HomePage() {
         <pointLight position={[10, 10, 10]} intensity={2} castShadow />
 
         <color args={[backgroundColor]} attach="background" />
-
-        {/* <Effect /> */}
       </Canvas>
       <div className="absolute bottom-0 px-2  right-0 mr-4 mb-4 bg-black/50 text-white rounded">
         {currentAttractor.name}

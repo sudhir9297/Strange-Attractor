@@ -42,15 +42,16 @@ import {
 export const attractor = [
   {
     id: 1,
-    name: "Lorenz Attractor",
-    data: lorenzAttractorData,
-    func: lorenzAttractor,
-    shadowPosition: [0, 0, 0],
-    cameraPosition: [40, 30, 40],
-    groupPosition: [0, -10, 0],
-    structuredRotation: [-1.573, 0, 0],
-    structuredPosition: [0, 0, 0],
-    shadowScale: 60,
+    name: "Dequan Li Attractor",
+    data: DequanLiAttractorData,
+    func: DequanLiAttractor,
+    shadowPosition: [0, -5, 0],
+    cameraPosition: [300, 200, 300],
+    groupPosition: [0, -15, 0],
+    structuredRotation: [1.57, 0, 1.57],
+    structuredPosition: [0, 160, 0],
+    shadowScale: 300,
+    shadowFar: 30,
   },
 
   {
@@ -158,16 +159,15 @@ export const attractor = [
 
   {
     id: 11,
-    name: "Dequan Li Attractor",
-    data: DequanLiAttractorData,
-    func: DequanLiAttractor,
+    name: "Lorenz Attractor",
+    data: lorenzAttractorData,
+    func: lorenzAttractor,
     shadowPosition: [0, 0, 0],
-    cameraPosition: [300, 200, 300],
+    cameraPosition: [40, 30, 40],
     groupPosition: [0, -10, 0],
-    structuredRotation: [1.57, 0, 1.57],
-    structuredPosition: [0, 160, 0],
-    shadowScale: 300,
-    shadowFar: 30,
+    structuredRotation: [-1.573, 0, 0],
+    structuredPosition: [0, 0, 0],
+    shadowScale: 60,
   },
 
   {
@@ -203,7 +203,7 @@ export const attractor = [
     func: HadleyAttractor,
     shadowPosition: [0, 0, 0],
     cameraPosition: [40, 20, 40],
-    groupPosition: [0, 0, 0],
+    groupPosition: [0, -10, 0],
     structuredRotation: [0, 0, 0],
     structuredPosition: [0, 11, 0],
     shadowScale: 50,
