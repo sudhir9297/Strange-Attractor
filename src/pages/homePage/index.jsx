@@ -71,7 +71,7 @@ function HomePage() {
             makeDefault
             position={currentAttractor.cameraPosition}
           />
-          <OrbitControls makeDefault enablePan={false} enableZoom={false} />
+          <OrbitControls makeDefault enablePan={false} enableZoom={true} />
 
           {useDot ? (
             <DotAttractor
