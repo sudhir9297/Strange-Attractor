@@ -45,13 +45,13 @@ export const attractor = [
     name: "Dequan Li Attractor",
     data: DequanLiAttractorData,
     func: DequanLiAttractor,
-    shadowPosition: [0, -5, 0],
-    cameraPosition: [300, 200, 300],
-    groupPosition: [0, -15, 0],
+    shadowPosition: [0, -6, 0],
+    cameraPosition: [220, 200, 220],
+    groupPosition: [0, -45, 0],
     structuredRotation: [1.57, 0, 1.57],
     structuredPosition: [0, 160, 0],
     shadowScale: 300,
-    shadowFar: 30,
+    shadowFar: 51,
   },
 
   {
@@ -99,10 +99,11 @@ export const attractor = [
     func: ChenCelikovskyAttractor,
     shadowPosition: [0, 0, 0],
     cameraPosition: [70, 60, 70],
-    groupPosition: [0, -10, 0],
+    groupPosition: [0, -20, 0],
     structuredRotation: [-1.57, 0, 0],
     structuredPosition: [0, 0, 0],
     shadowScale: 60,
+    shadowFar: 20,
   },
 
   {

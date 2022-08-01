@@ -60,6 +60,8 @@ function HomePage() {
         handleAttractorClicked={handleAttractorClicked}
         useDot={useDot}
         handleSwitchAttractor={handleSwitchAttractor}
+        currentAttractor={currentAttractor}
+        backgroundColor={backgroundColor}
       />
 
       <Canvas>
@@ -69,7 +71,7 @@ function HomePage() {
             makeDefault
             position={currentAttractor.cameraPosition}
           />
-          <OrbitControls makeDefault enablePan={false} enableZoom={true} />
+          <OrbitControls makeDefault enablePan={false} enableZoom={false} />
 
           {useDot ? (
             <DotAttractor
