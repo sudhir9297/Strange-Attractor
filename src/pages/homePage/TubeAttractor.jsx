@@ -1,8 +1,7 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Tube } from "@react-three/drei";
 import * as THREE from "three";
 import Floor from "./Floor";
-import { useFrame } from "@react-three/fiber";
 
 const Attractor = ({
   attractorData: {

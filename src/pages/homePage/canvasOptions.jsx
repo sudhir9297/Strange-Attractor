@@ -1,5 +1,12 @@
 import React from "react";
-import { Swap, attractor, GithubIcon, colorList } from "../../constants";
+import {
+  Swap,
+  attractor,
+  GithubIcon,
+  colorList,
+  DotIcon,
+  LineIcon,
+} from "../../constants";
 import { IconWrapper } from "../../components";
 
 function CanvasOptions({
@@ -7,31 +14,58 @@ function CanvasOptions({
   attractorDropDown,
   handleAttractorDropdown,
   handleAttractorClicked,
+  useDot,
+  handleSwitchAttractor,
 }) {
   return (
     <div className="absolute top-0 left-0 z-30 h-full flex flex-col justify-between py-2">
-      <div className="relative">
-        <IconWrapper
-          tooltip={"Change Attractor"}
-          showTooltip={!attractorDropDown}
-          handleClick={() => handleAttractorDropdown(!attractorDropDown)}
-        >
-          {Swap({ fill: "#ffffff" })}
-        </IconWrapper>
-        {attractorDropDown && (
-          <div className="absolute h-fit top-[0px] left-[80%] bg-black/50 text-white text-center py-1 rounded">
-            {attractor.map((o, index) => (
-              <div
-                key={index}
-                className="flex items-flex justify-start text-base my-2 mx-2 cursor-pointer "
-                onClick={() => handleAttractorClicked(o)}
-              >
-                <span className="truncate select-none">{o.name}</span>
-              </div>
-            ))}
+      <div className="flex justify-between items-center flex-col">
+        <div className="relative">
+          <IconWrapper
+            tooltip={"Change Attractor"}
+            showTooltip={!attractorDropDown}
+            handleClick={() => handleAttractorDropdown(!attractorDropDown)}
+          >
+            {Swap({ fill: "#ffffff" })}
+          </IconWrapper>
+          {attractorDropDown && (
+            <div className="absolute h-fit top-[0px] left-[80%] bg-black/50 text-white text-center py-1 rounded">
+              {attractor.map((o, index) => (
+                <div
+                  key={index}
+                  className="flex items-flex justify-start text-base my-2 mx-2 cursor-pointer "
+                  onClick={() => handleAttractorClicked(o)}
+                >
+                  <span className="truncate select-none">{o.name}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {useDot ? (
+          <div className="py-2">
+            <IconWrapper
+              tooltip={"Show Tube Attractor"}
+              showTooltip={true}
+              handleClick={handleSwitchAttractor}
+            >
+              {LineIcon({ fill: "#ffffff" })}
+            </IconWrapper>
+          </div>
+        ) : (
+          <div className="py-2">
+            <IconWrapper
+              tooltip={"Show Dot Attractor"}
+              showTooltip={true}
+              handleClick={handleSwitchAttractor}
+            >
+              {DotIcon({ fill: "#ffffff" })}
+            </IconWrapper>
           </div>
         )}
       </div>
+
       <div>
         <div className="h-fit top-[35px] left-[10px] mx-2.5  text-white text-center py-2 rounded">
           {colorList.map((color, index) => (

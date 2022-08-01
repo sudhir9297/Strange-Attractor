@@ -6,6 +6,8 @@ import {
   Close,
   Swap,
   GithubIcon,
+  DotIcon,
+  LineIcon,
 } from "./svg";
 import { colorList } from "./util";
 
@@ -18,4 +20,6 @@ export {
   Close,
   Swap,
   GithubIcon,
+  DotIcon,
+  LineIcon,
 };

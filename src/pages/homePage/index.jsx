@@ -12,6 +12,8 @@ import DotAttractor from "./DotAttractor";
 import TubeAttractor from "./TubeAttractor";
 
 function HomePage() {
+  const [useDot, setUseDot] = useState(false);
+
   const [reRender, setReRender] = useState(false);
 
   const [currentAttractor, setCurrentAttractor] = useState(attractor[0]);
@@ -36,6 +38,10 @@ function HomePage() {
     setBackgroundColor(value);
   };
 
+  const handleSwitchAttractor = () => {
+    setUseDot(!useDot);
+  };
+
   const handleAttractorDropdown = () => {
     setAttractorDropDown(!attractorDropDown);
   };
@@ -52,6 +58,8 @@ function HomePage() {
         attractorDropDown={attractorDropDown}
         handleAttractorDropdown={handleAttractorDropdown}
         handleAttractorClicked={handleAttractorClicked}
+        useDot={useDot}
+        handleSwitchAttractor={handleSwitchAttractor}
       />
 
       <Canvas>
@@ -62,9 +70,18 @@ function HomePage() {
             position={currentAttractor.cameraPosition}
           />
           <OrbitControls makeDefault enablePan={false} enableZoom={true} />
-          {/* <DotAttractor attractorData={currentAttractor} reRender={reRender} /> */}
 
-          <TubeAttractor attractorData={currentAttractor} reRender={reRender} />
+          {useDot ? (
+            <DotAttractor
+              attractorData={currentAttractor}
+              reRender={reRender}
+            />
+          ) : (
+            <TubeAttractor
+              attractorData={currentAttractor}
+              reRender={reRender}
+            />
+          )}
         </Suspense>
 
         <ambientLight intensity={1} />
